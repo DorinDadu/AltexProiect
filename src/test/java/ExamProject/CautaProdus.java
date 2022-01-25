@@ -1,10 +1,10 @@
 package ExamProject;
 
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.List;
 
 public class CautaProdus {
 
@@ -20,8 +20,9 @@ public class CautaProdus {
         driver.manage().window().maximize();
 
         WebElement cautaprodusElement=driver.findElement(By.cssSelector("input[placeholder='Cauta produsul dorit']"));
-        String cautaProdus="Biciclete";
-        cautaprodusElement.sendKeys(cautaProdus);
-        driver.close();
+        cautaprodusElement.click();
+        cautaprodusElement.sendKeys("biciclete");
+        cautaprodusElement.sendKeys(Keys.ENTER);
+
     }
 }

@@ -19,13 +19,14 @@ public class RecuperareParola {
         driver.get("https://altex.ro/cont/parola-uitata/");
         driver.manage().window().maximize();
 
-        WebElement contElement = driver.findElement(By.xpath("//*[text()='Cont']"));
-        contElement.click();
-
-
         WebElement emailElement= driver.findElement(By.cssSelector("form>input[name='email']"));
         String email="dorinP@yahoo.com";
         emailElement.sendKeys(email);
+
+        WebElement trimiteElement= driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/main/main/div/form/button"));
+        trimiteElement.click();
+        driver.quit();
+
 
 
 
