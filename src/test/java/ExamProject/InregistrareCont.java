@@ -46,7 +46,7 @@ public class InregistrareCont {
 
         //WebElement passwordElement= driver.findElement();
         //passwordElement.click();
-        //String password="Alibaba_40";
+        //String password="44d22";
         //passwordElement.sendKeys(password);
 
 
