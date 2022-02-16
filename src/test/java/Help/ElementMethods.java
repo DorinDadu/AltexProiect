@@ -9,9 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class ElementMethods {
@@ -28,13 +26,13 @@ public class ElementMethods {
 
     }
 
-    public void scrollElement(){
+    public void scrollElement(String value){
         JavascriptExecutor js=(JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,700)");
+        js.executeScript(value);
     }
 
-    public void waitImplicitElement(){
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    public void waitImplicitElement(long time){
+        driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
 
     }
 

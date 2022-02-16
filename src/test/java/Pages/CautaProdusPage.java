@@ -38,9 +38,9 @@ public class CautaProdusPage {
         elementMethods.sendEnter(enterElement);
     }
 
-    public void produseOption(){
+    public void produseOption(int index){
         List<WebElement> produseOption = driver.findElements(By.xpath("//ul[@class='Products  flex flex-wrap relative -mx-1 sm:-mx-2']/li/a/div[6]/button"));
-        produseOption.get(0).click();
+        produseOption.get(index).click();
     }
     public void checkCart(){
         elementMethods.clickElement(checkthecartElement);

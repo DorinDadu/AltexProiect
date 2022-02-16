@@ -18,9 +18,9 @@ public class CautaProdusTest extends SharedData {
 
         cautaProdusPage.fillsearchfield("Biciclete");
         cautaProdusPage.clickEnter();
-        elementMethods.waitImplicitElement();
-        elementMethods.scrollElement();
-        cautaProdusPage.produseOption();
+        elementMethods.waitImplicitElement(10);
+        elementMethods.scrollElement("window.scrollBy(0,700)");
+        cautaProdusPage.produseOption(0);
         cautaProdusPage.checkCart();
         cautaProdusPage.cleanthecart();
 

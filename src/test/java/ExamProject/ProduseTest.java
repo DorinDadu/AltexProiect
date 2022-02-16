@@ -21,7 +21,7 @@ public class ProduseTest extends SharedData {
         produsePage.produse();
         produsePage.telefoaneTablete();
         produsePage.telefoane();
-        produsePage.telefoaneOption();
+        produsePage.telefoaneOption(4);
         produsePage.acceptcookie();
         produsePage.addtoCart();
         cautaProdusPage.checkCart();

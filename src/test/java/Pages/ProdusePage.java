@@ -42,10 +42,11 @@ public class ProdusePage {
     public void telefoane(){
         elementMethods.clickElement(telefoaneElement);
     }
-    public void telefoaneOption(){
+    public void telefoaneOption(int index){
         List<WebElement> telefoaneOptions= driver.findElements(By.xpath("//*[@id=\"__next\"]/div[2]/div[1]/main/div[2]/div/div[2]/div/ul[2]/li"));
-        telefoaneOptions.get(4).click();
+        telefoaneOptions.get(index).click();
     }
+
 
     public void addtoCart(){
         elementMethods.clickElement(addtoCartElement);
