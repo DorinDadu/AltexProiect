@@ -24,7 +24,7 @@ public class InregistrareContTest extends SharedData {
         inregistrareContPage.fillLastName("P");
         inregistrareContPage.fillEmail("DorinP@dogmail.com");
         inregistrareContPage.fillTelefon("0740060532");
-        elementMethods.scrollElement("window");
+        elementMethods.scrollElement("window.scrollBy(0,700)");
         inregistrareContPage.clickAcceptCokie();
         inregistrareContPage.clickNewsLetter();
         inregistrareContPage.fillpassword("444Dadu222");
