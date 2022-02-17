@@ -25,6 +25,8 @@ public class LoginPage {
     public WebElement passwordElement;
     @FindBy(xpath = "//*[text()='Autentificare']")
     public WebElement submitElement;
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/div[1]/div/div/div[2]/div[2]/div/div/div/form/div[2]/div")
+    public WebElement errorMessageElement;
 
     public void clickCont(){
         elementMethods.clickElement(contElement);
@@ -33,12 +35,20 @@ public class LoginPage {
     public void fillEmail(String value){
         elementMethods.fillElement(emailElement, value);
     }
-
     public void fillPassword(String value){
         elementMethods.fillElement(passwordElement, value);
     }
-
     public void clickSubmit(){
         elementMethods.clickElement(submitElement);
+    }
+    public void loginValidprocess(String email, String password){
+        fillEmail(email);
+        fillPassword(password);
+        elementMethods.clickElement(submitElement);
+    }
+    public void invalidLoginprocess(String email, String error){
+        fillEmail(email);
+        elementMethods.clickElement(submitElement);
+        elementMethods.validateElementText(errorMessageElement, error);
     }
 }

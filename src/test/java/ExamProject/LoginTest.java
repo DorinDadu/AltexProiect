@@ -4,7 +4,7 @@ import Baza.SharedData;
 import Pages.LoginPage;
 import org.junit.Test;
 
-public class LoginValidInputsTest extends SharedData {
+public class LoginTest extends SharedData {
     public LoginPage loginPage;
 
     @Test
@@ -12,9 +12,7 @@ public class LoginValidInputsTest extends SharedData {
         loginPage = new LoginPage(driver);
 
         loginPage.clickCont();
-        loginPage.fillEmail("DorinP@dogmail.com");
-        loginPage.fillPassword("444Dadu222");
-        loginPage.clickSubmit();
+        loginPage.loginValidprocess("DorinP@dogmail.com", "444Dadu222");
 
     }
 }
