@@ -1,21 +1,25 @@
 package ExamProject;
 
-import Baza.SharedData;
+import Baza.Hooks;
 import Help.ElementMethods;
 import Pages.CautaProdusPage;
+import Pages.RevenireinSitePage;
 import org.junit.Test;
 
 
-public class CautaProdusTest extends SharedData {
+public class CautaProdusTest extends Hooks {
     public CautaProdusPage cautaProdusPage;
     public ElementMethods elementMethods;
+    public RevenireinSitePage revenireinSitePage;
 
 
     @Test
     public void cautaprodusTest() {
-        cautaProdusPage= new CautaProdusPage(driver);
-        elementMethods= new ElementMethods(driver);
+        cautaProdusPage= new CautaProdusPage(getDriver());
+        elementMethods= new ElementMethods(getDriver());
+        revenireinSitePage = new RevenireinSitePage(getDriver());
 
+        revenireinSitePage.clickBackinSite();
         cautaProdusPage.fillsearchfield("Biciclete");
         cautaProdusPage.clickEnter();
         elementMethods.waitImplicitElement(10);

@@ -1,90 +1,102 @@
 package Pages;
 
-import Help.ElementMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class InregistrareContPage {
+import java.util.HashMap;
 
-    public WebDriver driver;
-    public ElementMethods elementMethods;
+public class InregistrareContPage extends BasePage{
 
-    public InregistrareContPage(WebDriver driver){
-        this.driver = driver;
-        elementMethods = new ElementMethods(driver);
-        PageFactory.initElements(driver, this);
+    public InregistrareContPage(WebDriver driver) {
+        super(driver);
     }
 
+
     @FindBy(css = "div>a[href='https://altex.ro/cont/intra/']")
-    public WebElement clickInregistrareElement;
+    private WebElement clickInregistrareElement;
     @FindBy(css = "section>form>div>input[name='first_name']")
-    public WebElement firstNameElement;
+    private WebElement firstNameElement;
     @FindBy(css = "section>form>div>input[name='last_name']")
-    public WebElement lastNameElement;
+    private WebElement lastNameElement;
     @FindBy(css = "section>form>div>input[name='email']")
-    public WebElement emailElement;
+    private WebElement emailElement;
     @FindBy(css = "section>form>div>input[name='telephone']")
-    public WebElement telefonelement;
+    private WebElement telefonelement;
     @FindBy(xpath = "//*[@id=\"notice-cookie-block\"]/div/button")
-    public WebElement acceptcokieElement;
+    private WebElement acceptcokieElement;
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/main/div[1]/section[1]/form/div[5]/input")
-    public WebElement passwordElement;
+    private WebElement passwordElement;
     @FindBy(css = "[name='password_confirm']")
-    public WebElement confirmPasswordElement;
+    private WebElement confirmPasswordElement;
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/main/div[1]/section[1]/form/div[7]/label/span[1]")
-    public WebElement termenesiconditiiElement;
+    private WebElement termenesiconditiiElement;
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/main/div[1]/section[1]/form/div[8]/label/span[1]")
-    public WebElement newsletterElement;
+    private WebElement newsletterElement;
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/main/div[1]/section[1]/form/div[10]/button/span/span")
-    public WebElement submitElement;
+    private WebElement submitElement;
 
 
-    public void clickInregistrare(){
+    public void clickInregistrare() {
         elementMethods.clickElement(clickInregistrareElement);
     }
 
-    public void fillFirstName(String value){
+    public void fillFirstName(String value) {
         elementMethods.fillElement(firstNameElement, value);
     }
 
-    public void fillLastName(String value){
+    public void fillLastName(String value) {
         elementMethods.fillElement(lastNameElement, value);
     }
 
-    public void fillEmail(String value){
+    public void fillEmail(String value) {
         elementMethods.fillElement(emailElement, value);
     }
 
-    public void fillTelefon(String value){
+    public void fillTelefon(String value) {
         elementMethods.fillElement(telefonelement, value);
     }
 
-    public void clickAcceptCokie(){
+    public void clickAcceptCokie() {
         elementMethods.clickElement(acceptcokieElement);
     }
 
-    public void fillpassword(String value){
+    public void fillpassword(String value) {
         elementMethods.fillElement(passwordElement, value);
     }
 
-    public void fillConfirmpassword(String value){
+    public void fillConfirmpassword(String value) {
         elementMethods.fillElement(confirmPasswordElement, value);
     }
 
-    public void clickTermenesiConditii(){
+    public void clickTermenesiConditii() {
         elementMethods.clickElement(termenesiconditiiElement);
     }
 
-    public void clickNewsLetter(){
+    public void clickNewsLetter() {
         elementMethods.clickElement(newsletterElement);
     }
 
-    public void clickSubmit(){
+    public void clickSubmit() {
         elementMethods.clickElement(submitElement);
     }
 
+    public void inregistrareContValidProcess(HashMap<String, String> inputData) {
+        clickInregistrare();
+        fillFirstName(inputData.get("firstName"));
+        fillLastName(inputData.get("lastName"));
+        fillEmail(inputData.get("email"));
+        fillTelefon(inputData.get("telefon"));
+        clickAcceptCokie();
+        fillpassword(inputData.get("password"));
+        fillConfirmpassword(inputData.get("confirmPassword"));
+        clickTermenesiConditii();
+        clickNewsLetter();
+        clickSubmit();
+
+
+
+    }
 
 
 }

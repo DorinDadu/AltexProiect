@@ -1,23 +1,24 @@
 package ExamProject;
 
-import Baza.SharedData;
+import Baza.Hooks;
 import Pages.LoginPage;
 import Pages.RecuperareParolaPage;
+import Pages.RevenireinSitePage;
 import org.junit.Test;
 
-public class RecuperareParolaTest extends SharedData {
+public class RecuperareParolaTest extends Hooks {
     public LoginPage loginPage;
     public RecuperareParolaPage recuperareParolaPage;
+    public RevenireinSitePage revenireinSitePage;
 
     @Test
     public void recuperareparolaTest(){
-        loginPage = new LoginPage(driver);
-        recuperareParolaPage = new RecuperareParolaPage(driver);
+        loginPage = new LoginPage(getDriver());
+        recuperareParolaPage = new RecuperareParolaPage(getDriver());
+        revenireinSitePage =new RevenireinSitePage(getDriver());
 
+        revenireinSitePage.clickBackinSite();
         loginPage.clickCont();
-        recuperareParolaPage.recuperareparola();
-        recuperareParolaPage.fillEmail("DorinP@dogmail.com");
-        recuperareParolaPage.clickTrimite();
-
+        recuperareParolaPage.recuperareparolaProcess(inputData);
     }
 }

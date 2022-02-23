@@ -9,27 +9,22 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class ProdusePage {
+public class ProdusePage extends BasePage{
 
-    public WebDriver driver;
-    public ElementMethods elementMethods;
 
-    public ProdusePage(WebDriver driver) {
-        this.driver = driver;
-        elementMethods = new ElementMethods(driver);
-        PageFactory.initElements(driver, this);
-    }
+    public ProdusePage(WebDriver driver) {super(driver);}
+
 
     @FindBy(css = "a[href='#produse']")
-    public WebElement produseElement;
+    private WebElement produseElement;
     @FindBy(css = "a[href='/telefoane-tablete/cpl/']")
-    public WebElement telefoanetableteElement;
+    private WebElement telefoanetableteElement;
     @FindBy(css = "a[href='https://altex.ro/telefoane/cpl/']")
-    public WebElement telefoaneElement;
+    private WebElement telefoaneElement;
     @FindBy(xpath = "//*[@id=\"notice-cookie-block\"]/div/button/span/span")
-    public WebElement acceptcookieElement;
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/main/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div/button")
-    public WebElement addtoCartElement;
+    private WebElement acceptcookieElement;
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/main/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div/button/span/span")
+    private WebElement addtoCartElement;
 
     public void produse(){
         elementMethods.clickElement(produseElement);
@@ -49,10 +44,17 @@ public class ProdusePage {
 
 
     public void addtoCart(){
+        elementMethods.waitElement(addtoCartElement);
         elementMethods.clickElement(addtoCartElement);
     }
 
     public void acceptcookie(){
         elementMethods.clickElement(acceptcookieElement);
     }
+
+    public void scrollBy(){
+        elementMethods.scrollElement("window.scrollBy(0,400)");
+    }
+
+
 }

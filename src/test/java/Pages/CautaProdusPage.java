@@ -1,34 +1,28 @@
 package Pages;
 
-import Help.ElementMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class CautaProdusPage {
+public class CautaProdusPage extends BasePage{
 
-    public WebDriver driver;
-    public ElementMethods elementMethods;
 
-    public CautaProdusPage(WebDriver driver) {
-        this.driver = driver;
-        elementMethods = new ElementMethods(driver);
-        PageFactory.initElements(driver, this);
-    }
+
+    public CautaProdusPage(WebDriver driver) {super(driver);}
+
 
 
     @FindBy(css = "input[placeholder='Cauta produsul dorit']")
-    public WebElement searchElement;
+    private WebElement searchElement;
     @FindBy(css = "div>div>[type='submit']")
-    public WebElement enterElement;
+    private WebElement enterElement;
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/main/ul/li/div[1]/div/div[2]/div[3]/a/span/span")
-    public WebElement checkthecartElement;
+    private WebElement checkthecartElement;
     @FindBy(css = "span[class='pl-1 -tracking-0.29']")
-    public WebElement cleanthecartElement;
+    private WebElement cleanthecartElement;
 
     public void fillsearchfield(String value){
         elementMethods.fillElement(searchElement, value);
@@ -47,6 +41,9 @@ public class CautaProdusPage {
     }
     public void cleanthecart(){
         elementMethods.clickElement(cleanthecartElement);
+    }
+    public void scrollBy(){
+        elementMethods.scrollElement("window.scrollBy(0,700");
     }
 
 

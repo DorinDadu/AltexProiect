@@ -1,20 +1,23 @@
 package ExamProject;
 
-import Baza.SharedData;
+import Baza.Hooks;
 import Pages.LoginPage;
+import Pages.RevenireinSitePage;
 import org.junit.Test;
 
-public class InvalidLoginTest extends SharedData {
+public class InvalidLoginTest extends Hooks {
 
     public LoginPage loginPage;
+    public RevenireinSitePage revenireinSitePage;
 
     @Test
 
     public void invalidLogin(){
-        loginPage=new LoginPage(driver);
+        loginPage=new LoginPage(getDriver());
+        revenireinSitePage=new RevenireinSitePage(getDriver());
 
-        loginPage.clickCont();
-        loginPage.invalidLoginprocess("DorinP@dogmail.com", "Acest camp este obligatoriu");
+        revenireinSitePage.clickBackinSite();
+        loginPage.invalidLoginprocess(inputData);
 
     }
 

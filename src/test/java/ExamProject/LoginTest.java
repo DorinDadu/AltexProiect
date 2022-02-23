@@ -1,18 +1,20 @@
 package ExamProject;
 
-import Baza.SharedData;
+import Baza.Hooks;
 import Pages.LoginPage;
+import Pages.RevenireinSitePage;
 import org.junit.Test;
 
-public class LoginTest extends SharedData {
+public class LoginTest extends Hooks {
     public LoginPage loginPage;
+    public RevenireinSitePage revenireinSitePage;
 
     @Test
     public void loginTest() {
-        loginPage = new LoginPage(driver);
+        loginPage = new LoginPage(getDriver());
+        revenireinSitePage= new RevenireinSitePage(getDriver());
 
-        loginPage.clickCont();
-        loginPage.loginValidprocess("DorinP@dogmail.com", "444Dadu222");
-
+        revenireinSitePage.clickBackinSite();
+       loginPage.loginValidprocess(inputData);
     }
 }

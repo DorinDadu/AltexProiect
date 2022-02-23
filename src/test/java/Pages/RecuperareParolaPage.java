@@ -1,29 +1,25 @@
 package Pages;
 
-import Help.ElementMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class RecuperareParolaPage {
+import java.util.HashMap;
 
-    public WebDriver driver;
-    public ElementMethods elementMethods;
+public class RecuperareParolaPage extends BasePage{
 
-    public RecuperareParolaPage(WebDriver driver) {
-        this.driver = driver;
-        elementMethods = new ElementMethods(driver);
-        PageFactory.initElements(driver, this);
-    }
+
+
+    public RecuperareParolaPage(WebDriver driver) {super(driver);}
+
 
 
     @FindBy(css = "a[href='https://altex.ro/cont/parola-uitata/']")
-    public WebElement recuperareParolaElement;
+    private WebElement recuperareParolaElement;
     @FindBy(css = "form>input[name='email']")
-    public WebElement emailElement;
+    private WebElement emailElement;
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/main/main/div/form/button")
-    public WebElement trimiteElement;
+    private WebElement trimiteElement;
 
 
     public void recuperareparola(){
@@ -36,5 +32,11 @@ public class RecuperareParolaPage {
 
     public void clickTrimite(){
         elementMethods.clickElement(trimiteElement);
+    }
+
+    public void recuperareparolaProcess(HashMap<String, String> inputData){
+        recuperareparola();
+        fillEmail(inputData.get("email"));
+        clickTrimite();
     }
 }

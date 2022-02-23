@@ -1,21 +1,28 @@
 package Baza;
 
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import propertiesUtility.PropertiesObject;
 
 import java.time.Duration;
 
 public class SharedData {
 
-    public WebDriver driver;
+    private WebDriver driver;
 
-    @Before
-    public void setUp(){
-        System.setProperty("webdriver.chrome.driver","C:\\Automation\\chromedriver.exe");
+    public void InitializeDriver(){
+        PropertiesObject driverResource = new PropertiesObject("driverResource/DriverResource");
+        System.setProperty(driverResource.getValueByKey("browser"), driverResource.getValueByKey("browserPath"));
         driver = new ChromeDriver();
-        driver.get("https://altex.ro/");
+        driver.get(driverResource.getValueByKey("url"));
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+
+    public void TearDown(){
+
+        driver.quit();
+    }
+
+    public WebDriver getDriver(){return driver;}
 }
