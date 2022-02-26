@@ -10,7 +10,7 @@ public class BasePage {
     public ElementMethods elementMethods;
     public PageMethods pageMethods;
 
-    public BasePage(WebDriver driver){
+    public BasePage(WebDriver driver) {
         this.driver = driver;
         elementMethods = new ElementMethods(driver);
         pageMethods = new PageMethods(driver);

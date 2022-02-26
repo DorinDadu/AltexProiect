@@ -6,12 +6,11 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.HashMap;
 
-public class InregistrareContPage extends BasePage{
+public class InregistrareContPage extends BasePage {
 
     public InregistrareContPage(WebDriver driver) {
         super(driver);
     }
-
 
     @FindBy(css = "div>a[href='https://altex.ro/cont/intra/']")
     private WebElement clickInregistrareElement;
@@ -93,7 +92,6 @@ public class InregistrareContPage extends BasePage{
         clickTermenesiConditii();
         clickNewsLetter();
         clickSubmit();
-
 
 
     }

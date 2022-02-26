@@ -10,7 +10,7 @@ public class SharedData {
 
     private WebDriver driver;
 
-    public void InitializeDriver(){
+    public void InitializeDriver() {
         PropertiesObject driverResource = new PropertiesObject("driverResource/DriverResource");
         System.setProperty(driverResource.getValueByKey("browser"), driverResource.getValueByKey("browserPath"));
         driver = new ChromeDriver();
@@ -19,10 +19,12 @@ public class SharedData {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    public void TearDown(){
+    public void TearDown() {
 
         driver.quit();
     }
 
-    public WebDriver getDriver(){return driver;}
+    public WebDriver getDriver() {
+        return driver;
+    }
 }

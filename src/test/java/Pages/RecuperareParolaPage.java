@@ -6,13 +6,12 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.HashMap;
 
-public class RecuperareParolaPage extends BasePage{
+public class RecuperareParolaPage extends BasePage {
 
 
-
-    public RecuperareParolaPage(WebDriver driver) {super(driver);}
-
-
+    public RecuperareParolaPage(WebDriver driver) {
+        super(driver);
+    }
 
     @FindBy(css = "a[href='https://altex.ro/cont/parola-uitata/']")
     private WebElement recuperareParolaElement;
@@ -21,20 +20,19 @@ public class RecuperareParolaPage extends BasePage{
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/main/main/div/form/button")
     private WebElement trimiteElement;
 
-
-    public void recuperareparola(){
+    public void recuperareparola() {
         elementMethods.clickElement(recuperareParolaElement);
     }
 
-    public void fillEmail(String value){
+    public void fillEmail(String value) {
         elementMethods.fillElement(emailElement, value);
     }
 
-    public void clickTrimite(){
+    public void clickTrimite() {
         elementMethods.clickElement(trimiteElement);
     }
 
-    public void recuperareparolaProcess(HashMap<String, String> inputData){
+    public void recuperareparolaProcess(HashMap<String, String> inputData) {
         recuperareparola();
         fillEmail(inputData.get("email"));
         clickTrimite();

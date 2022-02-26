@@ -20,7 +20,7 @@ public class RevenireinSitePage {
     @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/div/div/div/div[2]/div[1]/a")
     private WebElement backinSite;
 
-    public void clickBackinSite(){
+    public void clickBackinSite() {
         elementMethods.clickElement(backinSite);
     }
 

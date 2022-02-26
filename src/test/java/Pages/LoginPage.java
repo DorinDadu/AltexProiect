@@ -6,11 +6,11 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.HashMap;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
 
-
-    public LoginPage(WebDriver driver) {super(driver);}
-
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
 
     @FindBy(css = "a[href='https://altex.ro/cont/']")
     private WebElement contElement;
@@ -23,27 +23,33 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/div[1]/div/div/div[2]/div[2]/div/div/div/form/div[2]/div")
     private WebElement errorMessageElement;
 
-    public void clickCont(){elementMethods.clickElement(contElement);}
-    public void fillEmail(String value){
+    public void clickCont() {
+        elementMethods.clickElement(contElement);
+    }
+
+    public void fillEmail(String value) {
         elementMethods.fillElement(emailElement, value);
     }
-    public void fillPassword(String value){
+
+    public void fillPassword(String value) {
         elementMethods.fillElement(passwordElement, value);
     }
-    public void clickSubmit(){
+
+    public void clickSubmit() {
         elementMethods.clickElement(submitElement);
     }
 
-    public void loginValidprocess(HashMap<String, String> inputData){
+    public void loginValidprocess(HashMap<String, String> inputData) {
         clickCont();
         fillEmail(inputData.get("email"));
         fillPassword(inputData.get("password"));
         clickSubmit();
     }
-    public void invalidLoginprocess(HashMap<String, String> inputData){
+
+    public void invalidLoginprocess(HashMap<String, String> inputData) {
         clickCont();
         fillEmail(inputData.get("email"));
-        elementMethods.clickElement(submitElement);
+        clickSubmit();
         elementMethods.validateElementText(errorMessageElement, inputData.get("errorMsg"));
     }
 }

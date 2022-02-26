@@ -11,10 +11,9 @@ public class InvalidLoginTest extends Hooks {
     public RevenireinSitePage revenireinSitePage;
 
     @Test
-
-    public void invalidLogin(){
-        loginPage=new LoginPage(getDriver());
-        revenireinSitePage=new RevenireinSitePage(getDriver());
+    public void invalidLogin() {
+        loginPage = new LoginPage(getDriver());
+        revenireinSitePage = new RevenireinSitePage(getDriver());
 
         revenireinSitePage.clickBackinSite();
         loginPage.invalidLoginprocess(inputData);

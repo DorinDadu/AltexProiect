@@ -20,60 +20,57 @@ public class ElementMethods {
         this.driver = driver;
     }
 
-    public void clickElement(WebElement element){
+    public void clickElement(WebElement element) {
         waitElement(element);
         element.click();
 
     }
 
-    public void scrollElement(String value){
-        JavascriptExecutor js=(JavascriptExecutor) driver;
-        js.executeScript(value);
+    public void scrollElement(int x, int y) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("windowscrollBy("+x+", "+y+")");
     }
 
-    public void waitImplicitElement(long time){
+    public void waitImplicitElement(long time) {
         driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
 
     }
 
-    public void waitElement(WebElement element){
-        WebDriverWait Wait= new WebDriverWait(driver, Duration.ofSeconds(60));
+    public void waitElement(WebElement element) {
+        WebDriverWait Wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         Wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void fillElement(WebElement element, String value){
+    public void fillElement(WebElement element, String value) {
         waitElement(element);
         element.sendKeys(value);
     }
 
-    public void movetoElement(WebElement element){
+    public void movetoElement(WebElement element) {
         waitElement(element);
-        Actions Action= new Actions(driver);
+        Actions Action = new Actions(driver);
         Action.moveToElement(element).perform();
     }
 
-    public void validateElementText(WebElement element, String value){
-
+    public void validateElementText(WebElement element, String value) {
         waitElement(element);
-        String actualmsg=element.getText();
-        Assert.assertEquals("textul cautat nu e corect",value,actualmsg);
+        String actualmsg = element.getText();
+        Assert.assertEquals("textul cautat nu e corect", value, actualmsg);
     }
 
-    public void selectElementBytext(WebElement element, String value){
-        Select dropdown= new Select(element);
+    public void selectElementBytext(WebElement element, String value) {
+        Select dropdown = new Select(element);
         dropdown.selectByVisibleText(value);
     }
 
-    public void selectElementByvalue(WebElement element, String value){
-        Select dropdown= new Select(element);
+    public void selectElementByvalue(WebElement element, String value) {
+        Select dropdown = new Select(element);
         dropdown.selectByValue(value);
     }
 
-    public void sendEnter(WebElement element){
+    public void sendEnter(WebElement element) {
         element.sendKeys(Keys.ENTER);
     }
-
-
 
 
 }

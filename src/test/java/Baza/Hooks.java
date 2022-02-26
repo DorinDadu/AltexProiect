@@ -6,15 +6,14 @@ import propertiesUtility.PropertiesObject;
 
 import java.util.HashMap;
 
-public class Hooks extends SharedData{
+public class Hooks extends SharedData {
     public HashMap<String, String> inputData;
 
     @Before
     public void prepareEnvironment() {
-
         InitializeDriver();
         String className = this.getClass().getSimpleName();
-        PropertiesObject testData = new PropertiesObject("testsResources/"+className+"Resource");
+        PropertiesObject testData = new PropertiesObject("testsResources/" + className + "Resource");
         inputData = testData.getAllKeyValues();
     }
 
@@ -22,7 +21,6 @@ public class Hooks extends SharedData{
     public void clearEnvironment() {
         TearDown();
     }
-
 
 
 }

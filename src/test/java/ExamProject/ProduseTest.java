@@ -13,16 +13,12 @@ public class ProduseTest extends Hooks {
     public RevenireinSitePage revenireinSitePage;
     public ElementMethods elementMethods;
 
-
     @Test
-
     public void produseTest() {
-
         produsePage = new ProdusePage(getDriver());
         cautaProdusPage = new CautaProdusPage(getDriver());
         revenireinSitePage = new RevenireinSitePage(getDriver());
         elementMethods = new ElementMethods(getDriver());
-
 
         revenireinSitePage.clickBackinSite();
         produsePage.produse();
