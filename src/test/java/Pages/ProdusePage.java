@@ -23,6 +23,10 @@ public class ProdusePage extends BasePage {
     private WebElement acceptcookieElement;
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/main/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div/button/span/span")
     private WebElement addtoCartElement;
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/main/ul/li/div[1]/div/div[2]/div[3]/a/span/span")
+    private WebElement checkthecartElement;
+    @FindBy(css = "span[class='pl-1 -tracking-0.29']")
+    private WebElement cleanthecartElement;
 
     public void produse() {
         elementMethods.clickElement(produseElement);
@@ -51,7 +55,29 @@ public class ProdusePage extends BasePage {
     }
 
     public void scrollBy() {
-        elementMethods.scrollElement("window.scrollBy(0,400)");
+        elementMethods.scrollElement(0, 400);
+    }
+
+    public void checkCart() {
+        elementMethods.clickElement(checkthecartElement);
+    }
+
+    public void cleanthecart() {
+        elementMethods.clickElement(cleanthecartElement);
+    }
+
+    public void produseProcess(){
+        produse();
+        telefoaneTablete();
+        telefoane();
+        telefoaneOption(4);
+        acceptcookie();
+        scrollBy();
+        addtoCart();
+        scrollBy();
+        checkCart();
+        cleanthecart();
+
     }
 
 

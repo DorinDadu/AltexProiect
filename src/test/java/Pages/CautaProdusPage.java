@@ -44,7 +44,18 @@ public class CautaProdusPage extends BasePage {
     }
 
     public void scrollBy() {
-        elementMethods.scrollElement("window.scrollBy(0,700");
+        elementMethods.scrollElement(0, 400);
+    }
+
+    public void cautaProduseProcess() {
+
+        fillsearchfield("Biciclete");
+        clickEnter();
+        scrollBy();
+        elementMethods.waitImplicitElement(60);
+        produseOption(0);
+        checkCart();
+        cleanthecart();
     }
 
 
